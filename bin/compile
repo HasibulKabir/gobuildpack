@@ -1,0 +1,15 @@
+#!/bin/sh
+
+echo "-----> Installing golang buildpack"
+BUILD_DIR=$1
+cd $BUILD_DIR
+
+mkdir -p ".heroku" 
+cd ".heroku"
+
+DOWNLOAD_URL="https://dl.google.com/go/go1.15.6.linux-amd64.tar.gz"
+curl -L  --silent $DOWNLOAD_URL | tar xz
+PROFILE_PATH="$BUILD_DIR/.profile.d/go.sh"
+mkdir -p $(dirname $PROFILE_PATH)
+echo 'export PATH="$PATH:${HOME}/.heroku/go/bin"' >> $PROFILE_PATH
+echo "-----> Done."
