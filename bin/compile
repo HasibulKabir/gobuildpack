@@ -7,7 +7,7 @@ cd $BUILD_DIR
 mkdir -p ".heroku" 
 cd ".heroku"
 
-DOWNLOAD_URL="https://dl.google.com/go/go1.16.linux-amd64.tar.gz"
+DOWNLOAD_URL="https://dl.google.com/go/go1.16.3.linux-amd64.tar.gz"
 curl -L  --silent $DOWNLOAD_URL | tar xz
 PROFILE_PATH="$BUILD_DIR/.profile.d/go.sh"
 mkdir -p $(dirname $PROFILE_PATH)
